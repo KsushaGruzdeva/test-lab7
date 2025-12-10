@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Получение кода и сборка') {
             steps {
-                git branch: 'main', url: 'https://github.com/ваш-user/task-manager-lab.git'
+                git branch: 'main', url: 'https://github.com/KsushaGruzdeva/test-lab7.git'
                 sh 'mvn clean compile'
             }
         }
