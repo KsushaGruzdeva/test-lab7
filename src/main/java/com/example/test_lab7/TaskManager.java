@@ -1,4 +1,4 @@
-package com.example.jenkins;
+package com.example.test_lab7;
 
 import java.util.ArrayList;
 import java.util.Date;

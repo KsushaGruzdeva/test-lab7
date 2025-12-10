@@ -1,10 +1,10 @@
-package com.example.jenkins;
+package com.example.test_lab7;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JenkinsApplicationTests {
+class TestLab7ApplicationTests {
 
 	@Test
 	void contextLoads() {

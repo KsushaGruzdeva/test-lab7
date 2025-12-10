@@ -1,19 +1,26 @@
 pipeline {
     agent any
     
+    tools {
+        maven 'Maven'
+        jdk 'jdk17'
+    }
+    
     stages {
-        stage('Checkout') {
+        stage('Получение кода и сборка') {
             steps {
-                git branch: 'main', url: 'https://github.com/KsushaGruzdeva/test-lab7.git'
+                git branch: 'main', url: 'https://github.com/ваш-user/task-manager-lab.git'
+                sh 'mvn clean compile'
             }
         }
         
-        stage('Build & Test') {
+        stage('Интеграционные тесты') {
             steps {
-                dir('.') {  // Переходим в корень проекта
-                    sh 'pwd'  // Должно показать корень
-                    sh 'ls -la'  // Проверяем файлы
-                    sh 'mvn clean test -Dtest="*IntegrationTest"'
+                sh 'mvn test -Dtest="*IntegrationTest"'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
                 }
             }
         }
